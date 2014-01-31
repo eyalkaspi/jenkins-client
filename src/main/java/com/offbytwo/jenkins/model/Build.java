@@ -9,8 +9,8 @@ package com.offbytwo.jenkins.model;
 import java.io.IOException;
 
 public class Build extends BaseModel {
-    int number;
-    String url;
+    public int number;
+    public String url;
 
     public Build() {
     }

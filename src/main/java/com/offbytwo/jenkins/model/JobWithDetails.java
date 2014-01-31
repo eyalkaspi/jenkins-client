@@ -12,19 +12,19 @@ import com.google.common.collect.Lists;
 import java.util.List;
 
 public class JobWithDetails extends Job {
-    String displayName;
-    boolean buildable;
-    List<Build> builds;
-    Build lastBuild;
-    Build lastCompletedBuild;
-    Build lastFailedBuild;
-    Build lastStableBuild;
-    Build lastSuccessfulBuild;
-    Build lastUnstableBuild;
-    Build lastUnsuccessfulBuild;
-    int nextBuildNumber;
-    List<Job> downstreamProjects;
-    List<Job> upstreamProjects;
+    public String displayName;
+    public boolean buildable;
+    public List<Build> builds;
+    public Build lastBuild;
+    public Build lastCompletedBuild;
+    public Build lastFailedBuild;
+    public Build lastStableBuild;
+    public Build lastSuccessfulBuild;
+    public Build lastUnstableBuild;
+    public Build lastUnsuccessfulBuild;
+    public int nextBuildNumber;
+    public List<Job> downstreamProjects;
+    public List<Job> upstreamProjects;
 
     public String getDisplayName() {
         return displayName;

@@ -20,15 +20,15 @@ import java.util.Map;
 import static com.google.common.collect.Collections2.filter;
 
 public class BuildWithDetails extends Build {
-    List actions;
-    boolean building;
-    String description;
-    int duration;
-    String fullDisplayName;
-    String id;
-    long timestamp;
-    BuildResult result;
-    List<Artifact> artifacts;
+    public List actions;
+    public boolean building;
+    public String description;
+    public int duration;
+    public String fullDisplayName;
+    public String id;
+    public long timestamp;
+    public BuildResult result;
+    public List<Artifact> artifacts;
 
     public List<Artifact> getArtifacts() {
         return artifacts;
@@ -79,7 +79,7 @@ public class BuildWithDetails extends Build {
         if (parameters != null && !parameters.isEmpty()) {
             for (Map<String, String> param : ((Map<String, List<Map<String, String>>>) parameters.toArray()[0]).get("parameters")) {
                 String key = param.get("name");
-                String value = param.get("value");
+                String value = String.valueOf(param.get("value"));
                 params.put(key, value);
             }
         }

@@ -27,6 +27,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.protocol.BasicHttpContext;
 import org.apache.http.util.EntityUtils;
 import org.codehaus.jackson.map.DeserializationConfig;
+import org.codehaus.jackson.map.DeserializationConfig.Feature;
 import org.codehaus.jackson.map.ObjectMapper;
 
 import com.offbytwo.jenkins.model.BaseModel;
@@ -245,7 +246,10 @@ public class JenkinsHttpClient {
     private ObjectMapper getDefaultMapper() {
         ObjectMapper mapper = new ObjectMapper();
         DeserializationConfig deserializationConfig = mapper.getDeserializationConfig();
-        mapper.setDeserializationConfig(deserializationConfig.without(DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES));
+        deserializationConfig.set(Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        deserializationConfig.set(Feature.USE_GETTERS_AS_SETTERS, false);
+        deserializationConfig.set(Feature.AUTO_DETECT_FIELDS, true);
+        mapper.setDeserializationConfig(deserializationConfig);
         return mapper;
     }
 }

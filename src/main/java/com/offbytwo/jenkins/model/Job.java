@@ -16,8 +16,8 @@ import static java.net.URLEncoder.encode;
 import static org.apache.commons.lang.StringUtils.join;
 
 public class Job extends BaseModel {
-    private String name;
-    private String url;
+    public String name;
+    public String url;
 
     public Job() {
     }
@@ -32,9 +32,9 @@ public class Job extends BaseModel {
         return name;
     }
 
-    public String getUrl() {
-        return url;
-    }
+    public void setName(String name) {
+		this.name = name;
+	}
 
     public JobWithDetails details() throws IOException {
         return client.get(url, JobWithDetails.class);
